@@ -160,7 +160,7 @@ test.print_weather_bmp(Rimage,x_pah_obr,735,10)
 # Bimage.show()
 # Rimage.show()
 
-# -------------vykreslení obrazu na vaweshare display -----------
+# -------------vykreslení obrazu na vaweshare display -------------
 #
 epd = epd7in5b_V2.EPD()
 epd.init()
