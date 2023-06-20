@@ -17,9 +17,9 @@ font = 'fonts/wsl.ttf'
 first_row_pix = 60
 day_week={ 0:"pondělí", 1:"úterý", 2:"středa", 3:"čtvrtek", 4:"pátek", 5:"sobota", 6:"neděle" }
 url = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d4932@com-it.cz/681dd8e876a84cc99b38f55572f661ae12499017570400705145/calendar.ics"
-url_garmin_test = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d4932@com-it.cz/6752435710bb4781a77d1f4ced468fee12488077744839618239/calendar.ics"
+# url_garmin_test = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d4932@com-it.cz/6752435710bb4781a77d1f4ced468fee12488077744839618239/calendar.ics"
 url_pocasi = "https://api.wo-cloud.com/content/widget/?geoObjectKey=10654806&language=cs&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
-url_pocasi_test = "https://api.wo-cloud.com/content/widget/?geoObjectKey=13349048&language=cs&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
+# url_pocasi_test = "https://api.wo-cloud.com/content/widget/?geoObjectKey=13349048&language=cs&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
 
 calendar_file = 'calendar.ics'
 
