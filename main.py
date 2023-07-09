@@ -115,7 +115,12 @@ test.print_weather_line(draw_black,100,0,100,first_row_pix)
 # x_den = den(0,1)
 x_pah_obr = "pic_"+ language + "/" + poccit.st_data[0][0] + ".bmp"
 x_tepl = poccit.st_data[1][0] + "°C /" + poccit.st_data[2][0] + "°C"
-test.print_weather_txt(draw_black,"Dnes",105,2 )
+if language == "cs":
+    test.print_weather_txt(draw_black,"Dnes",105,2 )
+elif language == "en":
+    test.print_weather_txt(draw_black, "Today", 105, 2)
+elif language == "de":
+    test.print_weather_txt(draw_black, "Heute", 105, 2)
 test.print_weather_txt(draw_black,poccit.st_data[0][0],105,20 )
 test.print_weather_txt(draw_black,x_tepl,105,40 )
 test.print_weather_bmp(Rimage,x_pah_obr,210,10)
@@ -125,7 +130,12 @@ test.print_weather_line(draw_black,275,0,275,first_row_pix)
 # x_den = den(1,1)
 x_pah_obr = "pic_"+ language + "/" + poccit.st_data[0][1] + ".bmp"
 x_tepl = poccit.st_data[1][1] + "°C /" + poccit.st_data[2][1] + "°C"
-test.print_weather_txt(draw_black,"Zítra",280,2 )
+if language == "cs":
+    test.print_weather_txt(draw_black,"Zítra",280,2 )
+elif language == "en":
+    test.print_weather_txt(draw_black, "Tomorrow", 280, 2)
+elif language == "de":
+    test.print_weather_txt(draw_black, "Morgen", 280, 2)
 test.print_weather_txt(draw_black,poccit.st_data[0][1],280,20 )
 test.print_weather_txt(draw_black,x_tepl,280,40 )
 test.print_weather_bmp(Rimage,x_pah_obr,385,10)
