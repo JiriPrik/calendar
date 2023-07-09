@@ -4,9 +4,10 @@ from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime, date,  timedelta
 from icalendar import Calendar
 import requests
-# import epd7in5b_V2
 from config import *
 
+if debug == False:
+    import epd7in5b_V2
 
 calendar_file = 'calendar.ics'
 
@@ -63,7 +64,10 @@ def calndr_find(day_today):
                 place = component.get("LOCATION")
                 start_time = component.get('DTSTART').dt.ctime()
                 str_time = str(start_time)
-                return_text.append(str_time[11:16] + " : " + str(summary[0:40]) + " : " + str(place[0:15]))
+                if place == None:
+                    return_text.append(str_time[11:16] + " : " + str(summary[0:40]))
+                else:
+                    return_text.append(str_time[11:16] + " : " + str(summary[0:40]) + " : " + str(place[0:15]))
 
     return return_text
 
@@ -75,7 +79,11 @@ test.print_line_table(tbl_list, draw_black)
  # ------------ vypsání datumů a dnů do buněk ---------------
 
 for d in range((row_pic*cell_pic)):
-    if den(d,0).find("sobota") != -1 or den(d,0).find("neděle") != -1:
+    if den(d,0).find("Sobota") != -1 or den(d,0).find("Neděle") != -1:
+        test.text_to_cell(draw_red, den(d, 0), tbl_list[d], 0) #  Red - black
+    elif den(d,0).find("Saturday") != -1 or den(d,0).find("Sunday") != -1:
+        test.text_to_cell(draw_red, den(d, 0), tbl_list[d], 0) #  Red - black
+    elif den(d,0).find("Samstag") != -1 or den(d,0).find("Sonntag") != -1:
         test.text_to_cell(draw_red, den(d, 0), tbl_list[d], 0) #  Red - black
     else:
         test.text_to_cell(draw_black,den(d,0),tbl_list[d],0)
@@ -143,14 +151,15 @@ test.print_weather_bmp(Rimage,x_pah_obr,735,10)
 
 # test.print_weather_bmp(Bimage,"pic/zatazeno.bmp",600,10)
 
-
-Bimage.show()
-Rimage.show()
+if debug == True:
+    Bimage.show()
+    Rimage.show()
 
 # -------------vykreslení obrazu na vaweshare display ------------
-#
-# epd = epd7in5b_V2.EPD()
-# epd.init()
-# epd.Clear()
-# epd.display(epd.getbuffer(Bimage),epd.getbuffer(Rimage))
-# epd.sleep()
+
+if debug == False:
+    epd = epd7in5b_V2.EPD()
+    epd.init()
+    epd.Clear()
+    epd.display(epd.getbuffer(Bimage),epd.getbuffer(Rimage))
+    epd.sleep()

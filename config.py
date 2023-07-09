@@ -1,16 +1,46 @@
 # Config run parameters
 
-# Config language
-language = "de" # only cs, de,en
-# Config calendar "ics" link
+# -------------------Config language ----------------
+language = "en" # only "cs", "de", "en"
+
+# ---------------- Config calendar "ics" link ----------------------------
+# 1. Google calendar:
+# - Calendar
+# - Setting and sharing
+# - Copy "Secret address in iCal format"
+# - paste to quote
+
+# 2. Microsoft 365 calendar
+# - login: https://outlook.office.com/mail/
+# - Setting / Calendar / Shared calendars
+# - select a calendar
+# - copy ICS link
+# - paste to quote
+
+
 url = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d4932@com-it.cz/681dd8e876a84cc99b38f55572f661ae12499017570400705145/calendar.ics"
 
-# Config link to the widget
-url_pocasi2 = "https://api.wo-cloud.com/content/widget/?geoObjectKey=10654806&language=cs&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
-url_pocasi = "https://api.wo-cloud.com/content/widget/?geoObjectKey=1796191&language=de&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
+# ------------------- Config link to the weather widget ------------------
+# url:
+# https://www.pocasiaradar.cz/widget-pocasi
+# Choose a place and a large frame.
+# Copy the html code starting after the quotes:
+# https://api.wo-cloud.com/....
+# after:
+# language=
+# and put in the first quotes.
+# Copy the text after the language character starting with:
+# &region=CZ&timeFor....
+# up to the quotes:
+# tureUnit=celsius
+# and put in second quotes
 
+url_pocasi = "https://api.wo-cloud.com/content/widget/?geoObjectKey=10654806&language=" + language + "&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
 
+# ---------- Debug == True - only print to image, Debug == False print to waveshare -----------
+debug = True
 
+# ---------- Setting other parameters -----------------
 width_pic = 800
 height_pic = 480
 row_pic = 7

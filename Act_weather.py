@@ -37,7 +37,7 @@ class Act_weather:
             x = element["title"]
             x = x.lower()
             dt1.append(x)
-        self.st_data.append(dt1)
+            self.st_data.append(dt1)
 
         dt2 = []
         thumbnail_elements = soup.find_all("div", class_="temperature max")
