@@ -1,2 +1,11 @@
 # calendar
-Calendar using ics file on waveshare epaper display
+Calendar using ics file on waveshare epaper 7,5" display
+It is possible to read data from Google and Microsoft 365 calendars
+
+Displays the weather in the given location with a forecast for 3 days
+
+
+Installation:
+ - a link to the ICS calendar must be added in the "config.py" file
+ - in the file "config.py" it is necessary to modify the line with the link to the weather widget
+
