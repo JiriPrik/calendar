@@ -21,7 +21,7 @@ draw_black = ImageDraw.Draw(Bimage)
 draw_red = ImageDraw.Draw(Rimage)
 
 poccit = Act_weather.Act_weather()
-poccit.data(url_pocasi)
+poccit.data(url_weather)
 print(poccit.st_data)
 
 # --------------- načtení dat z kalendáře ------------

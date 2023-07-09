@@ -35,7 +35,7 @@ url = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d49
 # tureUnit=celsius
 # and put in second quotes
 
-url_pocasi = "https://api.wo-cloud.com/content/widget/?geoObjectKey=10654806&language=" + language + "&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
+url_weather = "https://api.wo-cloud.com/content/widget/?geoObjectKey=10654806&language=" + language + "&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
 
 # ---------- Debug == True - print to image, Debug == False print to waveshare -----------
 debug = True
