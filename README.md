@@ -11,8 +11,10 @@ Installation:
  - in the file "config.py" it is necessary to modify the line with the link to the weather widget
 
 Language:
-    en - english
-    cs - czech
-    de - german
+- en - english
+- cs - czech
+- de - german
 
 Photo (Wooden frame):
+
+![Optional Text](IMG_frame.jpg)
