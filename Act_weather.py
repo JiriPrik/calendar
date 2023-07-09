@@ -3,8 +3,8 @@
 class Act_weather:
     def __init__(self):
         self.st_place = ""
-        self.st_temp_today = 0
-        self.st_wind = 0
+        self.st_temp_today = ""
+        self.st_wind = ""
         self.st_data = []
 
     def data(self, url):
@@ -28,8 +28,10 @@ class Act_weather:
         thumbnail_elements = soup.find_all("div", class_="temp")
         for element in thumbnail_elements:
             txt = element.text.replace(" ", "")
+            txt = txt.replace("°", "")
             txt = txt.strip("\n")
-            self.st_temp_today = txt
+            print(txt)
+            self.st_temp_today = txt + "°C"
 
         thumbnail_elements = soup.find_all("img", class_="symbol")
         dt1 = []
