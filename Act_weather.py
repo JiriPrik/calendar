@@ -1,6 +1,6 @@
 
 
-class Pocasicitov:
+class Act_weather:
     def __init__(self):
         self.st_place = ""
         self.st_temp_today = 0
@@ -34,7 +34,9 @@ class Pocasicitov:
         thumbnail_elements = soup.find_all("img", class_="symbol")
         dt1 = []
         for element in thumbnail_elements:
-            dt1.append(element['title'])
+            x = element["title"]
+            x = x.lower()
+            dt1.append(x)
         self.st_data.append(dt1)
 
         dt2 = []

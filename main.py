@@ -1,25 +1,12 @@
 import PiImage
-import PocasiCitov
+import Act_weather
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime, date,  timedelta
 from icalendar import Calendar
 import requests
-import epd7in5b_V2
+# import epd7in5b_V2
+from config import *
 
-# Proměnné - width - šířka, height - výška
-
-width_pic = 800
-height_pic = 480
-row_pic = 7
-cell_pic = 2
-width_pic_line = 1
-font = 'fonts/wsl.ttf'
-first_row_pix = 60
-day_week={ 0:"pondělí", 1:"úterý", 2:"středa", 3:"čtvrtek", 4:"pátek", 5:"sobota", 6:"neděle" }
-url = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d4932@com-it.cz/681dd8e876a84cc99b38f55572f661ae12499017570400705145/calendar.ics"
-# url_garmin_test = "https://outlook.office365.com/owa/calendar/87100d5ea2c046dfabaf2ebe442d4932@com-it.cz/6752435710bb4781a77d1f4ced468fee12488077744839618239/calendar.ics"
-url_pocasi = "https://api.wo-cloud.com/content/widget/?geoObjectKey=10654806&language=cs&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
-# url_pocasi_test = "https://api.wo-cloud.com/content/widget/?geoObjectKey=13349048&language=cs&region=CZ&timeFormat=HH:mm&windUnit=kmh&systemOfMeasurement=metric&temperatureUnit=celsius"
 
 calendar_file = 'calendar.ics'
 
@@ -32,7 +19,7 @@ Rimage = Image.new('1', (width_pic, height_pic), 255)
 draw_black = ImageDraw.Draw(Bimage)
 draw_red = ImageDraw.Draw(Rimage)
 
-poccit = PocasiCitov.Pocasicitov()
+poccit = Act_weather.Act_weather()
 poccit.data(url_pocasi)
 print(poccit.st_data)
 
@@ -118,7 +105,7 @@ test.print_weather_txt(draw_black,poccit.st_wind,3,40 )
 test.print_weather_line(draw_black,100,0,100,first_row_pix)
 
 # x_den = den(0,1)
-x_pah_obr = "pic/" + poccit.st_data[0][0] + ".bmp"
+x_pah_obr = "pic_"+ language + "/" + poccit.st_data[0][0] + ".bmp"
 x_tepl = poccit.st_data[1][0] + "°C /" + poccit.st_data[2][0] + "°C"
 test.print_weather_txt(draw_black,"Dnes",105,2 )
 test.print_weather_txt(draw_black,poccit.st_data[0][0],105,20 )
@@ -128,7 +115,7 @@ test.print_weather_line(draw_black,275,0,275,first_row_pix)
 
 
 # x_den = den(1,1)
-x_pah_obr = "pic/" + poccit.st_data[0][1] + ".bmp"
+x_pah_obr = "pic_"+ language + "/" + poccit.st_data[0][1] + ".bmp"
 x_tepl = poccit.st_data[1][1] + "°C /" + poccit.st_data[2][1] + "°C"
 test.print_weather_txt(draw_black,"Zítra",280,2 )
 test.print_weather_txt(draw_black,poccit.st_data[0][1],280,20 )
@@ -138,7 +125,7 @@ test.print_weather_line(draw_black,450,0,450,first_row_pix)
 
 
 x_den = den(2,1)
-x_pah_obr = "pic/" + poccit.st_data[0][2] + ".bmp"
+x_pah_obr = "pic_"+ language + "/" + poccit.st_data[0][2] + ".bmp"
 x_tepl = poccit.st_data[1][2] + "°C /" + poccit.st_data[2][2] + "°C"
 test.print_weather_txt(draw_black,x_den,455,2 )
 test.print_weather_txt(draw_black,poccit.st_data[0][2],455,20 )
@@ -147,7 +134,7 @@ test.print_weather_bmp(Rimage,x_pah_obr,560,10)
 test.print_weather_line(draw_black,625,0,625,first_row_pix)
 
 x_den = den(3,1)
-x_pah_obr = "pic/" + poccit.st_data[0][3] + ".bmp"
+x_pah_obr = "pic_"+ language + "/" + poccit.st_data[0][3] + ".bmp"
 x_tepl = poccit.st_data[1][3] + "°C /" + poccit.st_data[2][3] + "°C"
 test.print_weather_txt(draw_black,x_den,630,2 )
 test.print_weather_txt(draw_black,poccit.st_data[0][3],630,20 )
@@ -157,13 +144,13 @@ test.print_weather_bmp(Rimage,x_pah_obr,735,10)
 # test.print_weather_bmp(Bimage,"pic/zatazeno.bmp",600,10)
 
 
-# Bimage.show()
-# Rimage.show()
+Bimage.show()
+Rimage.show()
 
 # -------------vykreslení obrazu na vaweshare display ------------
 #
-epd = epd7in5b_V2.EPD()
-epd.init()
-epd.Clear()
-epd.display(epd.getbuffer(Bimage),epd.getbuffer(Rimage))
-epd.sleep()
+# epd = epd7in5b_V2.EPD()
+# epd.init()
+# epd.Clear()
+# epd.display(epd.getbuffer(Bimage),epd.getbuffer(Rimage))
+# epd.sleep()
